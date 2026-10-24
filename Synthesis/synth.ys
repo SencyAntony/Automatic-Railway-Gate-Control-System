@@ -1,0 +1,8 @@
+read_verilog railway_gate.v
+synth -top railway_gate -flatten
+dfflibmap -liberty /home/sency/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty /home/sency/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib -D 20000
+clean
+stat -liberty /home/sency/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+write_verilog -noattr railway_gate_netlist.v
+
